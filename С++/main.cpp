@@ -14,7 +14,7 @@ int main ()
     cout << "Displaying char ch using cout.put(ch): ";
     //Использование cout.put() для отображения символьной константы 
     cout.put(ch);
-    cout.put('!');
+    cout.put('!!');
     cout << endl << "Done" << endl;
     return 0;
 }
