@@ -12,7 +12,7 @@ int main ()
     cout << "Перевод светового года в астрономические единицы" << endl;
     cout << "Введите количество световых лет: ";
     cin >> year;
-    cout << "Кол-во астрономических единиц: " << AstronomicalUnits(year) << endl;
+    cout << "Кол-во астрономических единиц!!!!: " << AstronomicalUnits(year) << endl;
     return 0;
 }
 
