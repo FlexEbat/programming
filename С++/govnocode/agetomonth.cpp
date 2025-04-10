@@ -10,8 +10,17 @@ int agetomonth(int age)
 int main ()
 {
     int age;
-    cout << "Введит ваш возраст: ";
+    
+    cout << "Введите ваш возраст: ";
     cin >> age;
-    cout << "Ваш возраст в месяцах: " << agetomonth(age) << endl;   
+    
+    if (age < 0 || age > 100 )
+    {
+        cout << "Возвраст должен быть > 0 и < 100" << endl;
+        return 1;
+    } else {
+        cout << "Ваш возраст в месяцах: " << agetomonth(age) << endl;   
+    }
     return 0;
+    
 }
