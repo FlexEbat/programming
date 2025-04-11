@@ -1,18 +1,17 @@
 #include <stdio.h>
-
-int main()
+#define ADJUST 7.31
+int main (void)
 {
-    char name[50];
-    int width, widthforname;
-    printf("Введите ширину поля: ");
-    scanf("%d", &width);
-
-    printf("Введите ширину поля для имени: ");
-    scanf("%d", &widthforname);
-
-    printf("Введите ваше имя: ");
-    scanf("%49s", name);
-
-    printf("%*sПривет, \"%*s\"\n", width, "", widthforname, name);
-
+    const double SCALE = 0.333; 
+    double shoe, foot;
+    printf("Размер обуви (^мужской) длина ступни\n");
+    shoe = 3.0;
+    while (shoe < 18.5)
+{
+    foot = SCALE * shoe + ADJUST;
+    printf("%10.lf %20.2f даймов\n", shoe, foot);
+    shoe = shoe + 1.0;
+} 
+printf("Если обувь подходит, носите ее.\n");
+return 0;
 }
