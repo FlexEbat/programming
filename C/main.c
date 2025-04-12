@@ -1,17 +1,8 @@
 #include <stdio.h>
-#define ADJUST 7.31
-int main (void)
+int main ()
 {
-    const double SCALE = 0.333; 
-    double shoe, foot;
-    printf("Размер обуви (^мужской) длина ступни\n");
-    shoe = 3.0;
-    while (shoe < 18.5)
-{
-    foot = SCALE * shoe + ADJUST;
-    printf("%10.lf %20.2f даймов\n", shoe, foot);
-    shoe = shoe + 1.0;
-} 
-printf("Если обувь подходит, носите ее.\n");
-return 0;
+	int n = 0;
+	size_t intsize;
+	intsize = sizeof (int);
+	printf("n = %d, n состоит из %zd байтов; все значения int имеют %zd байтов. \n", n, sizeof n, intsize );
 }
