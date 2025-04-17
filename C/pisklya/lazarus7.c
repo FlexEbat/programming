@@ -4,17 +4,18 @@
 
 int main() {
     int size;
+
     // Запрашиваем размер матрицы у пользователя
     printf("Введите размер матрицы: ");
     scanf("%d", &size);
-    if(size > 10 || size < 1) {
+
+    if (size > 10 || size < 1) {
         printf("Размер матрицы должен быть от 1 до 10.\n");
-        return 1; // Завершаем программу с ошибкой
+        return 1;
     }
-    // Создаем двумерный массив (матрицу)
+
     int matrix[size][size];
 
-    // Настраиваем генератор случайных чисел
     srand(time(NULL));
 
     // Заполняем матрицу случайными числами от 100 до 999
@@ -36,17 +37,23 @@ int main() {
     // Считаем суммы главной и побочной диагоналей
     int main_sum = 0, second_sum = 0;
     for (int i = 0; i < size; i++) {
-        main_sum += matrix[i][i];                // Сумма главной диагонали
-        second_sum += matrix[i][size - 1 - i];   // Сумма побочной диагонали
+        main_sum += matrix[i][i];
+        second_sum += matrix[i][size - 1 - i];
     }
 
-    // Вычисляем отношение диагоналей
+    printf("\nСумма главной диагонали: %d", main_sum);
+    printf("\nСумма побочной диагонали: %d", second_sum);
+
+    // Проверка на деление на ноль
+    if (second_sum == 0) {
+        printf("\n\nНу круто чо?\n");
+        return 1;
+    }
+
     float ratio = (float)main_sum / second_sum;
     printf("\nОтношение диагоналей: %.2f\n\n", ratio);
 
-    // Выводим результат в зависимости от отношения
     if (ratio > 1) {
-        // Выводим нечетные числа
         printf("Нечетные числа:\n");
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
@@ -57,9 +64,7 @@ int main() {
             }
             printf("\n");
         }
-    }
-    else if (ratio < 1) {
-        // Выводим четные числа
+    } else if (ratio < 1 && ratio != 0) {
         printf("Четные числа:\n");
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
@@ -70,9 +75,16 @@ int main() {
             }
             printf("\n");
         }
-    }
-    else {
-        // Выводим только диагонали
+    } else if (ratio == 0) {
+        printf("Отношение равно НУЛЮ. Это полный пиздец.\n"
+               "Вот тебе вся матрица, может найдёшь там тайный смысл:\n");
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                printf("%4d ", matrix[i][j]);
+            }
+            printf("\n");
+        }
+    } else {
         printf("Диагонали матрицы:\n");
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
