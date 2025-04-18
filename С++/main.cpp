@@ -1,28 +1,34 @@
 #include <iostream>
 
-using namespace std;
+void kgToPound() 
+{
+    double kg, pound;
+    std::cout <<"Введите вес в килограммах: ";
+    std::cin >> kg;
+    if (kg <= 0 ) {
+        std::cout << "Вес не может быть <= 0" << std::endl;
+    }
+    else {
+        pound = kg * 2.20462;
+        std::cout << "Вес в фунтах: " << pound << std::endl;
+    }
+}    
 
 int main ()
 {
-    long long int seconds, seconds2;
-    short days, hours, minutes;
+    using namespace std;
+    int choice;
+    do 
+    {
+        cout << "Привет. Здесь ты можешь:\n 1. Из КГ в Фунты\n 2. DOLLAR TO RUB.\n";
+        cout << "Что ты хочешь сделать: ";
+        cin >> choice;
+        if (choice == 1) {
+            kgToPound();
+        }
+        /* code */
+    } while (choice != 0);
+    cout << "Выход из программы." << endl;
     
-    cout << "Введит кол-во секунд для перевода в дни/часы/минуты/секунды: ";
-    cin >> seconds;
-    seconds2 = seconds;
-    if (seconds < 0) {
-        cout << "Ты че долбаёб, как может быть секунд < 0????" << endl;
-    } else {
-        days = seconds / 86400;
-        seconds = seconds % 86400;
-
-        hours = seconds / 3600;
-        seconds = seconds % 3600;
-
-        minutes = seconds / 60;
-        seconds = seconds % 60;
-
-        cout << seconds2 << " секунд - это: " << days << " дней, " << hours << " часов, " << minutes << " минут и " << seconds << " секунд." << endl;
-    }
- return 0;
+    return 0;
 }
