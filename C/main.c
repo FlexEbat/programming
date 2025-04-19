@@ -3,45 +3,12 @@
 
 int main (void)
 {
-    double sumCredite, interestRate, r, powRate, annuitePayment;
-    int month;
-    printf("Привет. Это калькулятор ипотеки.\n");
-    printf("Считаемтолько Аннуитетные платежи.\n");
-    printf("Введит сумму кредита(Пример: 1000000): ");
-    if(scanf("%lf", &sumCredite) != 1) {
-        printf("Ошибка ввода. Пожалуйста, введите число.\n");
-        return 1; // Возвращаем ошибку
+    char array[] = {1,2,3,4,5,6,7};
+    for (int i = 0; i < sizeof(array); i++){
+        printf("%d", array[i]);
     }
-    if(sumCredite <= 0) {
-        printf("Сумма кредита не может <=0.\n");
-        return 1; // Возвращаем ошибку
-    }
-    printf("Введите срок кредита в месяцах(Пример: 10): ");
-    if(scanf("%d", &month) != 1) {
-        printf("Ошибка ввода. Пожалуйста, введите число.\n");
-        return 1; // Возвращаем ошибку
-    }
-    if(month <= 0) {
-        printf("Срок кредита не может <=0.\n");
-        return 1; // Возвращаем ошибку
-    }
-    printf("Введите процентную ставку(Пример: 10): ");
-    if(scanf("%lf", &interestRate) != 1) {
-        printf("Ошибка ввода. Пожалуйста, введите число.\n");
-        return 1; // Возвращаем ошибку
-    }
-    if(interestRate <= 0) {
-        printf("Процентная ставка не может <=0.\n");
-        return 1; // Возвращаем ошибку
-    }
-    r = (interestRate / 100.0) / 12.0;         // Месячная ставка
-    powRate = pow(1 + r, month);                // Степень
-    annuitePayment = sumCredite * (r * powRate) / (powRate - 1); // Готово
-    
-    printf("Ваши аннуитетные платежи составляют: %.2lf\n", annuitePayment);
-    printf("Общая сумма выплат составит: %.2lf\n", annuitePayment * month);
-
-    printf("Общая переплата составит: %.2lf\n", (annuitePayment * month) - sumCredite);
-    printf("Сумма тела кредита составит: %.2lf\n", sumCredite);
-    return 0; 
+    printf("\n");
+    int pizda = sizeof(array);
+    printf("%d", pizda);
+    return 0;
 }
