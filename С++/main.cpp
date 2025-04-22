@@ -1,24 +1,26 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
 using namespace std;
 
-struct Hat 
-{
-    int price;
+struct person {
     string name;
-    int age;
+    short age;
+    double money;
 };
 
 int main ()
 {
-    Hat my_hat;
-    my_hat.price = 1488;
-    my_hat.age = 18;
+    person person;
+    cout << "Введите сколько вам лет: ";
+    cin >> person.age;
+    cout << "Введите сколько у вас денег: ";
+    cin >> person.money;
+    cin.ignore();
     cout << "Введите как вас зовут: ";
-    getline(cin, my_hat.name);
-    cout << "Смари " << my_hat.name << " чипсы стоят: " << my_hat.price << " рублей" << "\nНО! Тебе нет " << my_hat.age << " Лет.";
-    cout << " по этому ди нахуй";
+    getline(cin, person.name);
+    cout << "\n";
+    cout << "Hi " << person.name << " u have some money: " << person.money << " dollars" << " and u " << person.age << " ages";
     return 0;
+
 }

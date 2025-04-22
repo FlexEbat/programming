@@ -1,14 +1,33 @@
 #include <stdio.h>
 #include <math.h>
 
-int main (void)
-{
-    char array[] = {1,2,3,4,5,6,7};
-    for (int i = 0; i < sizeof(array); i++){
-        printf("%d", array[i]);
+double power(double n, int p) {
+    double pow = 1;
+    for (int i = 1; i <= p; i++) {
+        pow *= n;
     }
-    printf("\n");
-    int pizda = sizeof(array);
-    printf("%d", pizda);
+    return pow;
+}
+
+int main() {
+    double x, exp, xpow;
+
+    printf("Введите число: ");
+    if (scanf("%lf", &x) != 1) {
+        printf("Че, еблан? Надо было число!\n");
+        return 1;
+    }
+
+    printf("Введите степень: ");
+    if (scanf("%lf", &exp) != 1) {
+        printf("Ты совсем охуел? Где степень, мразь?\n");
+        return 1;
+    }
+
+    xpow = power(x, (int)exp);
+    printf("%.2lf в степени %d = %.2lf\n", x, (int)exp, xpow);
+    printf("Q - quit\n");
+    printf("ПОШЁЛ НАХУЙ\n");
+
     return 0;
 }
