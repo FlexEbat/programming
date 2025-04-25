@@ -6,7 +6,6 @@ enum class COLOR {
     RED = 30, GREEN = 32, BLUE = 34, YELLOW = 33,
     CYAN = 36, MAGENTA = 35, WHITE = 39, BLACK = 37,
 };
-
 string color_to_string(COLOR c) {
     switch (c) {
         case COLOR::RED: return "RED";
