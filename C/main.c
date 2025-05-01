@@ -1,19 +1,25 @@
+
 #include <stdio.h>
 
-#define SPACE ' '
-
 int main() {
-    char ch = getchar();
-
-    while(ch != '\n')
-    {
-        if(ch == SPACE)
-            putchar(ch);
-        else
-           putchar(ch+1);
-        ch = getchar();
+    int p, q;
+    
+    scanf("%d", &p);
+    while (p > 0) {
+        printf("%d\n", p);
+        scanf("%d", &q);
+        
+        while (q > 0) {
+            printf("%d\n", p * q);
+            if (q > 100)
+                break;  // выход из внутреннего цикла
+            scanf("%d", &q);
+        }
+        
+        if (q > 100)
+            break;  // выход из внешнего цикла
+        scanf("%d", &p);
     }
-    putchar(ch);
+    
     return 0;
 }
-
