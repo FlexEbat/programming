@@ -45,3 +45,7 @@ int main (void)
     printf("Сумма тела кредита составит: %.2lf\n", sumCredite);
     return 0; 
 }
+
+
+
+
