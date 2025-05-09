@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 
+enum class PaymentType { Piecework, Hourly };
 
 struct Person
 {
@@ -10,12 +11,13 @@ struct Person
     int age; 
     std::string Address_of_residence; // адрес проживания
     std::string job_title; // должност
+    PaymentType Payment;
 };
 
-enum class PaymentType { Piecework, Hourly };
 
 void Registration_employee(Person &Worker)
 {
+    int ChoicePayment;
     std::cout << "Введите имя вашего сотрудника: ";
     std::getline(std::cin, Worker.name);
     std::cout << "Введите фамилию вашего сотрудника: ";
@@ -29,27 +31,21 @@ void Registration_employee(Person &Worker)
     std::getline(std::cin, Worker.Address_of_residence);
     std::cout << "Введите должность сотрудника: ";
     std::getline(std::cin, Worker.job_title);
+    std::cout << "Введите способ оплаты: \n";
+    std::cout << "1 - Почасовой. \n";
+    std::cout << "2 - Сдельный. \n";
+    std::cin >> ChoicePayment;
+    std::cin.ignore();
+
+    if (ChoicePayment == 1){
+        Worker.Payment = PaymentType::Hourly;
+    } else {
+        Worker.Payment = PaymentType::Piecework;
+    }
 }
 
-int main()
+void Info_Employee(Person &Worker)
 {
-    int choice;
-
-    
-    std::cout << "Welcome to our factory.Here you can register an employee, but before that you need to indicate:\n";
-    std::cout << "1. Name.\n 2.Surname.\n 3.MiddleName.\n 4.Address of residence.\n5. Dolly.\n6.Type of payment (piecework, hourly)\n";
-    std::cout << "Ваш выбор: ";
-    std::cin >> choice;
-    std::cin.ignore();
-    Person Worker;
-    
-    if (choice == 1) 
-    {
-
-        Registration_employee(Worker);
-
-
-    }
     std::cout << "\nИнформация о сотруднике:\n";
     std::cout << "Имя: " << Worker.name << "\n";
     std::cout << "Фамилия: " << Worker.surname << "\n";
@@ -57,6 +53,44 @@ int main()
     std::cout << "Возраст: " << Worker.age << "\n";
     std::cout << "Адрес проживания: " << Worker.Address_of_residence << "\n";
     std::cout << "Должность: " << Worker.job_title << "\n";
+    if (Worker.Payment == PaymentType::Hourly) {
+        std::cout << "Способ оплаты: Почасовой\n";
+    } else {
+        std::cout << "Способ оплаты: Сдельный\n";
+    }
+}
+
+
+int main()
+{
+    Person Worker;
+    while (true)
+    {
+        
+        int choice;
+        std::cout << "Лаборатория Xum1337. Вы можете зарегистрировать сотрудника и посмотреть о нём информацию!\n";
+        std::cout << "Your choice*(1 - registration; 2 - info): ";
+        std::cin >> choice;
+        std::cin.ignore();
+
+        switch (choice)
+        {
+        case 1:
+            Registration_employee(Worker);
+            break;
+        case 2:
+             Info_Employee(Worker);
+             break;
+        default:
+            break;
+        }
+        // Registration_employee(Worker);
+        // Info_Employee(Worker);
+
+    }
+    
+
+
     return 0;
     
 }

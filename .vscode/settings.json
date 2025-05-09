@@ -46,7 +46,9 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "cinttypes": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "locale.h": "c",
+        "stdint.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
